@@ -10,7 +10,10 @@ export default {
         	extend: {
         		animation: {
         			'shadow-pulse': 'shadowPulse 6s infinite ease-in-out',
-        			rippling: 'rippling var(--duration) ease-out'
+        			rippling: 'rippling var(--duration) ease-out',
+        			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
+        			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
+        			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear'
         		},
         		fontFamily: {
         			ubuntu: [
@@ -38,6 +41,30 @@ export default {
         				'100%': {
         					transform: 'scale(2)',
         					opacity: '0'
+        				}
+        			},
+        			'shimmer-slide': {
+        				to: {
+        					transform: 'translate(calc(100cqw - 100%), 0)'
+        				}
+        			},
+        			'spin-around': {
+        				'0%': {
+        					transform: 'translateZ(0) rotate(0)'
+        				},
+        				'15%, 35%': {
+        					transform: 'translateZ(0) rotate(90deg)'
+        				},
+        				'65%, 85%': {
+        					transform: 'translateZ(0) rotate(270deg)'
+        				},
+        				'100%': {
+        					transform: 'translateZ(0) rotate(360deg)'
+        				}
+        			},
+        			'border-beam': {
+        				'100%': {
+        					'offset-distance': '100%'
         				}
         			}
         		},

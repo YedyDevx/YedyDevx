@@ -4,31 +4,31 @@ import AboutMe from "../AboutMe/AboutMe";
 
 const Section1 = () => {
         return (
-                <main className="flex justify-center items-center relative min-h-screen w-full px-4 mt-20">
+                <main id="home" className="flex justify-center items-center relative min-h-screen w-full mt-16">
                         <Shadow />
+                        <div className="absolute top-0 z-40 flex flex-col items-center gap-5 sm:gap-14 md:gap-16 lg:gap-10">
+                                <h1 className="font-semibold font-ubuntu-condensed text-center text-8xl sm:text-7xl md:text-8xl lg:text-9xl gradient-text mt-20 sm:mt-7 md:mt-20 lg:mt-24 md:p-8">
+                                        <TypingAnimation>  
+                                                Soy Yedixon Ramones
+                                        </TypingAnimation>
+                                </h1>
 
-                        <h1 className="absolute font-semibold rounded-2xl top-0 z-40 font-ubuntu-condensed mt-6 sm:mt-7 md:mt-10 lg:mt-24 text-center   text-7xl sm:text-8xl md:text-9xl lg:text-9xl xl:text-9xl gradient-text px-24 lg:px-0 py-8 mx-24 md:mx-0">
-                                <TypingAnimation>  
-                                        Soy Yedixon Ramones
-                                </TypingAnimation>
-                        </h1>
-                        <p className="absolute md:flex hidden text-white rounded-2xl top-0 z-5 font-ubuntu  mt-[300px] sm:mt-[280px]  z-40 text-center text-lg sm:text-xl md:text-2xl lg:text-2xl gradient-text ">
-                                Desarrollador de Software | Desarrollador Web | Desarrollador Frontend
-                        </p>
-                        <p className="absolute  flex md:hidden text-white rounded-2xl top-0 z-5 font-ubuntu 
-                                    mt-[300px] z-40 text-center text-xl  flex-col">
-                                <span className="gradient-text">Desarrollador de Software </span> 
-                                <span className="gradient-text">Desarrollador de Aplicaciones </span> 
-                        </p>
-                        <button className="absolute bg-black/60 py-2 px-6 sm:px-8 md:px-10 text-[#9855FF] 
-                                         rounded-full border-[1px] border-gray-400 top-0 z-40 font-ubuntu 
-                                         mt-96 sm:mt-96 md:mt-96 z-50 text-center 
-                                         text-lg sm:text-xl md:text-2xl 
-                                         hover:bg-black/80 transition-colors">
-                                Contactame
-                        </button>
+                                <p className="hidden md:block text-center font-ubuntu text-lg sm:text-xl md:text-4xl lg:text-4xl gradient-text">
+                                        Desarrollador Web | Frontend Junior
+                                </p>
+
+                                <div className="flex md:hidden flex-col items-center text-center font-ubuntu text-xl">
+                                        <span className="gradient-text">Desarrollador Web</span> 
+                                        <span className="gradient-text">Frontend Junior</span> 
+                                </div>
+
+                                <button className="bg-black/60 py-2 px-6 sm:px-8 md:px-10 text-[#9855FF] rounded-full border border-gray-400 font-ubuntu text-lg sm:text-xl md:text-2xl hover:bg-black/80 transition-colors z-40">
+                                        Contactame
+                                </button>
+                        </div>
                         <AboutMe/>
                 </main>
         )
 }
+
 export default Section1;
