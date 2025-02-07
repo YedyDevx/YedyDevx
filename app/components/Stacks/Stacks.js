@@ -31,7 +31,7 @@ const technologies = [
     
     const Stacks = () => {
         return (
-            <section id="projects" className="flex flex-col items-center min-h-screen w-full px-4 py-10 relative overflow-hidden">
+            <section id="projects" className="flex flex-col items-center min-h-screen w-full px-4 pt-10 relative overflow-hidden">
                 {/* Fondo con efecto cyberpunk */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
@@ -40,7 +40,7 @@ const technologies = [
                 <motion.h2 
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="font-semibold font-ubuntu-condensed text-6xl mb-16 relative"
+                    className="font-semibold font-ubuntu-condensed text-6xl my-10 relative"
                 >
                     <span className="gradient-text relative">
                         Tech Stack
