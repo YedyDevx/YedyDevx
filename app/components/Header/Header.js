@@ -46,7 +46,10 @@ const Header = () => {
                     </div>
 
                     <div className="lg:flex hidden justify-center items-center border-[1px] border-zinc-800 py-1 px-1 rounded-lg">
-                        <button className="bg-[#40266b] hover:bg-[#8157c3] text-gray-50 py-1 px-6 rounded-md font-ubuntu shadow-[inset_0px_2px_14px_rgba(255,255,255,0.3)] transition-all duration-400">
+                        <button
+                            onClick={() => window.open('/CV-YedixonRamones.pdf', '_blank')}
+                            className="bg-[#40266b] hover:bg-[#8157c3] text-gray-50 py-1 px-6 rounded-md font-ubuntu shadow-[inset_0px_2px_14px_rgba(255,255,255,0.3)] transition-all duration-400"
+                        >
                             Hoja CV
                         </button>
                     </div>

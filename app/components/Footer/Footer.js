@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import logo from "../../../public/Logo.svg";
 import CVButton from "../Header/CVBotton";
@@ -5,10 +6,11 @@ import { FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
+import { Link as ScrollLink } from "react-scroll";
 
 const Footer = () => {
     return (
-        <footer className="relative w-full pt-16 pb-5 px-4 overflow-hidden">
+        <div className="relative w-full pt-16 pb-5 px-4 overflow-hidden">
             {/* Gradiente de fondo */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-black/90" />
 
@@ -22,21 +24,20 @@ const Footer = () => {
                         />
                     </div>
 
-                    {/* Exploración */}
                     <div className="flex flex-col items-center lg:items-start">
                         <h2 className="text-2xl font-ubuntu-condensed gradient-text mb-6">
                             Explora mi portfolio
                         </h2>
                         <nav className="flex flex-col gap-2 text-gray-300 items-center lg:items-start">
-                            <a href="#sobremi" className="hover:text-purple-400 transition-colors">
+                            <ScrollLink to="aboutme" smooth={true} duration={500} className="hover:text-purple-400 transition-colors">
                                 Conoce más sobre mí
-                            </a>
-                            <a href="#projects" className="hover:text-purple-400 transition-colors">
+                            </ScrollLink>
+                            <ScrollLink to="projects" smooth={true} duration={500} className="hover:text-purple-400 transition-colors">
                                 Conoce algunos de mis proyectos
-                            </a>
-                            <a href="#contacto" className="hover:text-purple-400 transition-colors">
+                            </ScrollLink>
+                            <ScrollLink to="contact" smooth={true} duration={500} className="hover:text-purple-400 transition-colors">
                                 Contactame para conocer más
-                            </a>
+                            </ScrollLink>
                         </nav>
                     </div>
 
@@ -97,11 +98,11 @@ const Footer = () => {
                 </div>
 
                 {/* Copyright */}
-                <div className="mt-5 pt-8 border-t border-purple-900/30 text-center text-gray-400">
-                    <p>© {new Date().getFullYear()} Yedixon Ramones - YedyDevx. </p>
+                <div className=" mt-3  pt-3 border-t border-purple-900/30 text-center text-gray-400">
+                    <p>© 2025 Yedixon Ramones - YedyDevx. </p>
                 </div>
             </div>
-        </footer>
+        </div>
     );
 };
 

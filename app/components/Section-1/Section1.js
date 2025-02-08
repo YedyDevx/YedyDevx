@@ -1,6 +1,8 @@
+'use client'
 import { TypingAnimation } from "../../../components/ui/typing-animation";
 import Shadow from "./Shadow";
 import AboutMe from "../AboutMe/AboutMe";
+import { Link as ScrollLink } from "react-scroll";
 
 const Section1 = () => {
     return (
@@ -16,9 +18,13 @@ const Section1 = () => {
                 <p className=" text-center font-ubuntu text-3xl md:text-4xl lg:text-5xl gradient-text">
                     Desarrollador de Software
                 </p>
-                <button className="bg-black/60 py-2 px-6 sm:px-8 md:px-10 text-[#9855FF] rounded-full border border-gray-400 font-ubuntu text-lg sm:text-xl md:text-2xl hover:bg-black/80 transition-colors z-40">
+                <ScrollLink 
+                to="contact"
+                smooth={true}
+                duration={500}
+                className="bg-black/60 py-2 px-6 sm:px-8 md:px-10 text-[#9855FF] rounded-full border border-gray-400 font-ubuntu text-lg sm:text-xl md:text-2xl hover:bg-black/80 transition-colors z-40 cursor-pointer">
                     Contactame
-                </button>
+                </ScrollLink>
             </div>
             <AboutMe />
         </main>
