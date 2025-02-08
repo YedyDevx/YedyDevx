@@ -4,7 +4,7 @@ const AboutContent = () => {
             <h2 className="text-xl md:text-xl text-white font-ubuntu-condensed font-light">
                 "Todo lo que puedas imaginar, se puede programar"
             </h2>
-            <p className="text-gray-300 text-sm md:text-lg ">
+            <p className="text-gray-300 text-[8px] md:text-lg ">
                 Me llamo Yedixon soy un desarrollador de software de 22 años, enfocado en el desarrollo frontend
                 creando interfaces interactivas y responsivas haciendo las experiencias
                 de los usuarios sean excepcionales. Mi pasión por el desarrollo
