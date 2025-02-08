@@ -31,7 +31,7 @@ const technologies = [
 
 const Stacks = () => {
     return (
-        <section id="projects" className="flex flex-col items-center min-h-screen w-full px-4 pt-10 relative overflow-hidden">
+        <section  className="flex flex-col items-center w-full px-4 pt-10 relative overflow-hidden">
             {/* Fondo con efecto cyberpunk */}
             <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />

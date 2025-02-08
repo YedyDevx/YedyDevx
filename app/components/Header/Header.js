@@ -7,14 +7,14 @@ import { MdClose } from "react-icons/md";
 import { useState } from "react";
 import HeaderMobile from "./HeaderMobile";
 import { BorderBeam } from "../../../components/ui/border-beam";
-
+import { Link as ScrollLink } from "react-scroll";
 
 const Header = () => {
     const navbarItems = [
-        { name: "Inicio", href: "#home" },
-        { name: "Sobre mi", href: "#sobreMi" },
-        { name: "Proyectos", href: "#projects" },
-        { name: "Contactame", href: "#contact" },
+        { name: "Inicio", to: "home" },
+        { name: "Sobre mi", to: "aboutme" },
+        { name: "Proyectos", to: "projects" },
+        { name: "Contactame", to: "contact" },
     ];
 
     const [isOpenMobile, setIsOpenMobile] = useState(false);
@@ -30,13 +30,17 @@ const Header = () => {
 
                     <div className="lg:flex hidden justify-center items-center gap-10 text-gray-50 border-[1px] w-[600px] h-[52px] border-zinc-800 rounded-full relative">
                         {navbarItems.map((item) => (
-                            <a
+                            <ScrollLink
                                 key={item.name}
-                                href={item.href}
-                                className="hover:text-purple-600 hover:border-b-2 hover:border-purple-600 font-ubuntu text-lg transition"
+                                to={item.to}
+                                smooth={true}
+                                duration={500}
+                                offset={-70}
+                                spy={true}
+                                className="hover:text-purple-600 hover:border-b-2 hover:border-purple-600 font-ubuntu text-lg transition cursor-pointer"
                             >
                                 {item.name}
-                            </a>
+                            </ScrollLink>
                         ))}
                         <BorderBeam />
                     </div>
@@ -61,7 +65,7 @@ const Header = () => {
                     </button>
                 </div>
             </div>
-            {isOpenMobile && <HeaderMobile />}
+            {isOpenMobile && <HeaderMobile toggleMenu={toggleMenu} />}
         </header>
     );
 }

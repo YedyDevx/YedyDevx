@@ -69,8 +69,8 @@ const Projects = () => {
     const currentProject = projects[currentIndex];
 
     return (
-        <section className="flex justify-center flex-col items-center relative top-6 md:top-[-80px]  xl:top-[-150px] 2xl:top-[-150px]">
-            <h2 className="font-ubuntu-condensed text-white text-6xl gradient-text font-bold mb-12 py-3">
+        <section name="projects" className="flex justify-center flex-col items-center relative ">
+            <h2 className="font-ubuntu-condensed text-white text-6xl gradient-text font-bold my-12 py-3">
                 Proyectos
             </h2>
             <motion.div
@@ -82,7 +82,7 @@ const Projects = () => {
                 className="bg-gradient-to-l from-[#0d0718] via-[#5a278e] to-[#0d0718] w-[350px] sm:w-[600px] md:w-[700px] lg:w-[800px] xl:w-[1200px] rounded-2xl z-30 mx-4 p-3 transition-all duration-300 shadow-[0_-15px_55px_-10px_#5a278e]"
             >
                 <div className="w-full h-full flex bg-black/80 rounded-xl p-3 relative">
-                    <div className="w-full flex flex-col lg:justify-center lg:items-center xl:flex-row gap-6 overflow-hidden">
+                    <div className="w-full flex flex-col lg:justify-center lg:items-center xl:flex-row gap-2 overflow-hidden">
                         <div className="w-full xl:w-[40%] rounded-xl p-6 text-white">
                             <h3 className="text-3xl font-bold mb-4 gradient-text">
                                 {currentProject.title}

@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import CVButton from './CVBotton';
-const HeaderMobile = () => {
+import { Link as ScrollLink } from 'react-scroll';
+
+const HeaderMobile = ({toggleMenu}) => {
     const navbarMobile = [
-        { name: "Inicio", href: "#home" },
-        { name: "Sobre mi", href: "#sobreMi" },
-        { name: "Proyectos", href: "#projects" },
-        { name: "Contactame", href: "#contact" },
+        { name: "Inicio", to: "home" },
+        { name: "Sobre mi", to: "aboutme" },
+        { name: "Proyectos", to: "projects" },
+        { name: "Contactame", to: "contact" },
     ];
 
     const socialLinks = [
@@ -31,7 +33,7 @@ const HeaderMobile = () => {
     ];
     return (
         <motion.nav
-            className="fixed top-[65px] right-0 w-72 h-[calc(100vh-65px)] lg:hidden flex flex-col items-center gap-4 p-5 bg-gradient-to-tr from-black via-[#0f0916] to-[#170e25] shadow-lg shadow-black z-40 overflow-y-auto"
+            className="fixed top-[65px] right-0 w-72 h-[calc(100vh-65px)] lg:hidden flex flex-col items-center justify-between gap-4 p-5 bg-gradient-to-tr from-black via-[#0f0916] to-[#170e25] shadow-lg shadow-black z-40 overflow-y-auto"
             initial={{ opacity: 0, x: 300 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 300 }}
@@ -41,29 +43,39 @@ const HeaderMobile = () => {
                 damping: 20
             }}
         >
-            <h2 className="font-ubuntu text-3xl gradient-text">Menu</h2>
+            
             <div className="flex flex-col items-center gap-4">
+            <h2 className="font-ubuntu text-3xl gradient-text mb-5 ">Menu</h2>
                 {navbarMobile.map((item) => (
-                    <a
+                    <ScrollLink
                         key={item.name}
-                        href={item.href}
-                        className="text-gray-50 font-ubuntu hover:text-purple-600 hover:border-b-2 hover:border-purple-600 text-xl transition duration-300 transform"
+                        to={item.to}
+                        smooth={true}
+                        duration={500}
+                        offset={-70}
+                        spy={true}
+                        onClick={toggleMenu}
+                        className="text-gray-50 font-ubuntu hover:text-purple-600 hover:border-b-2 hover:border-purple-600 text-xl transition duration-300 transform cursor-pointer"
                     >
                         {item.name}
-                    </a>
+                    </ScrollLink>
                 ))}
             </div>
-            <CVButton />
-            <div className="flex gap-10 justify-center items-center mt-3">
-                {socialLinks.map((social) => (
-                    <a
-                        key={social.name}
-                        href={social.href}
-                        className="text-gray-50 hover:text-purple-600 transition duration-300"
-                    >
-                        {social.icon}
-                    </a>
-                ))}
+            <div>
+                <CVButton />
+                <div className="flex gap-10 justify-center items-center my-5">
+                    {socialLinks.map((social) => (
+                        <a
+                            key={social.name}
+                            href={social.href}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            className="text-gray-50 hover:text-purple-600 transition duration-300"
+                        >
+                            {social.icon}
+                        </a>
+                    ))}
+                </div>
             </div>
         </motion.nav>
     );
