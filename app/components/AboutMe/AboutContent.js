@@ -1,7 +1,7 @@
 const AboutContent = () => {
     return (
         <div className="flex flex-col gap-6 md:gap-8 max-w-xl">
-            <h2 className="text-xl md:text-3xl text-white font-ubuntu-condensed font-light">
+            <h2 className="text-xl md:text-xl text-white font-ubuntu-condensed font-light">
                 "Todo lo que puedas imaginar, se puede programar"
             </h2>
             <p className="text-gray-300 text-sm md:text-lg ">
