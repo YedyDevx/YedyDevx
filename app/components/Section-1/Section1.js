@@ -9,13 +9,13 @@ const Section1 = () => {
         <main name="home" className="flex justify-center items-center relative min-h-screen w-full mt-16">
             <Shadow />
             <div className="absolute top-0 z-40 flex flex-col items-center gap-5 sm:gap-14 md:gap-16 lg:gap-10">
-                <h1 className="font-semibold font-ubuntu-condensed text-center text-6xl sm:text-7xl md:text-8xl lg:text-7xl gradient-text mt-20 sm:mt-7 md:mt-20 lg:mt-24 md:p-8">
+                <h1 className="font-semibold font-ubuntu-condensed text-center text-6xl sm:text-7xl md:text-8xl lg:text-8xl gradient-text mt-20 sm:mt-7 md:mt-20 lg:mt-24 md:p-8">
                     <TypingAnimation>
                         Soy Yedixon Ramones
                     </TypingAnimation>
                 </h1>
 
-                <p className=" text-center font-ubuntu text-3xl md:text-4xl lg:text-5xl gradient-text">
+                <p className=" text-center font-ubuntu text-3xl md:text-4xl lg:text-3xl gradient-text">
                     Desarrollador de Software
                 </p>
                 <ScrollLink 
