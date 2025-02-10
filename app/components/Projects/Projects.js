@@ -69,8 +69,16 @@ const Projects = () => {
     const currentProject = projects[currentIndex];
 
     return (
-        <section name="projects" className="flex justify-center flex-col items-center relative ">
-            <h2 className="font-ubuntu-condensed text-white text-6xl gradient-text font-bold my-12 py-3">
+        <motion.section
+            name="projects"
+            className="flex justify-center flex-col items-center relative "
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+        >
+            <h2
+                className="font-ubuntu-condensed text-white text-6xl gradient-text font-bold my-12 py-3">
                 Proyectos
             </h2>
             <motion.div
@@ -96,54 +104,123 @@ const Projects = () => {
                                     {currentProject.tech.map((tech) => (
                                         <span
                                             key={tech}
-                                            className="px-3 py-1 font-ubuntu text-base bg-purple-900/50 rounded-full border border-purple-500/30"
+                                            className="px-3 py-1 font-ubuntu text-base bg-purple-900/50  rounded-sm border border-purple-500/30"
                                         >
                                             {tech}
                                         </span>
                                     ))}
                                 </div>
                             </div>
-                            <div className="flex gap-4">
-                                <div className="flex justify-center items-center border-[1px] border-zinc-800 py-1 px-1 rounded-lg z-50">
-                                    <a
+                            <div className="flex gap-6">
+                                {/* Botón Ver Proyecto */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.5 }}
+                                    className="relative group z-50"
+                                >
+                                    <motion.a
                                         href={currentProject.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="px-3 py-2 lg:px-6 lg:py-2 bg-[#40266b]  hover:bg-[#8157c3] text-gray-50 rounded-md font-ubuntu shadow-[inset_0px_2px_14px_rgba(255,255,255,0.3)] transition-all duration-400"
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="relative flex items-center gap-2 
+                                    bg-black/30 backdrop-blur-sm
+                                    text-white/90 font-ubuntu
+                                        py-2 px-4 lg:px-8  r rounded-lg
+                                        border border-purple-500/30
+                                        transition-all duration-300
+                                        hover:border-purple-500/70
+                                        hover:text-white
+                                        hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]
+                                        overflow-hidden"
                                     >
-                                        Ver Proyecto
-                                    </a>
-                                </div>
-                                <div className="flex justify-center items-center border-[1px] border-zinc-800 py-1 px-1 rounded-lg z-50">
-                                    <a
+                                        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-fuchsia-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-fuchsia-600 
+                                        opacity-0 group-hover:opacity-20 blur-sm transition-opacity duration-300" />
+                                        <span className="relative z-10 flex items-center gap-2">
+                                            Proyecto
+                                            <IoIosArrowForward className="text-lg" />
+                                        </span>
+                                        <div className="absolute -inset-2 opacity-0 group-hover:opacity-100">
+                                            <div className="absolute top-0 left-1/4 w-[2px] h-[2px] bg-purple-500 rounded-full animate-particle-1" />
+                                            <div className="absolute bottom-0 right-1/4 w-[2px] h-[2px] bg-purple-500 rounded-full animate-particle-2" />
+                                        </div>
+                                        <div className="absolute inset-0">
+                                            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-purple-500/50 to-transparent" />
+                                            <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-purple-500/50 to-transparent" />
+                                        </div>
+                                    </motion.a>
+                                </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                    className="relative group z-50"
+                                >
+                                    <motion.a
                                         href={currentProject.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="px-6 py-2 bg-[#40266b]  hover:bg-[#8157c3] text-gray-50 rounded-md font-ubuntu shadow-[inset_0px_2px_14px_rgba(255,255,255,0.3)] transition-all duration-400"
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="relative flex items-center gap-2 
+                                        bg-black/30 backdrop-blur-sm
+                                        text-white/90 font-ubuntu
+                                        py-2 px-4 lg:px-8  rounded-lg
+                                        border border-purple-500/30
+                                        transition-all duration-300
+                                        hover:border-purple-500/70
+                                        hover:text-white
+                                        hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]
+                                        overflow-hidden"
                                     >
-                                        GitHub
-                                    </a>
-                                </div>
+                                        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-fuchsia-600/20 to-purple-600/20   opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-fuchsia-600  opacity-0 group-hover:opacity-20 blur-sm transition-opacity duration-300" />
+                                        <span className="relative z-10 flex items-center gap-2">
+                                            GitHub
+                                            <IoIosArrowForward className="text-lg" />
+                                        </span>
+                                        <div className="absolute -inset-2 opacity-0 group-hover:opacity-100">
+                                            <div className="absolute top-0 left-1/4 w-[2px] h-[2px] bg-purple-500 rounded-full animate-particle-1" />
+                                            <div className="absolute bottom-0 right-1/4 w-[2px] h-[2px] bg-purple-500 rounded-full animate-particle-2" />
+                                        </div>
+                                        <div className="absolute inset-0">
+                                            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-purple-500/50 to-transparent" />
+                                            <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-purple-500/50 to-transparent" />
+                                        </div>
+                                    </motion.a>
+                                </motion.div>
                             </div>
                         </div>
-                        <div className="w-full lg:w-[95%] h-[180px] sm:h-[280px] md:h-[380px] lg:h-[430px] rounded-xl bg-gradient-to-tr from-black via-[#0f0916] to-[#170e25] border-[1px] border-gray-800 overflow-hidden relative group">
+                        <div className="w-full lg:w-[95%] relative overflow-hidden
+                            h-[200px]  // Móvil pequeño
+                            sm:h-[280px]  // Tablets pequeñas
+                            md:h-[320px]  // Tablets
+                            lg:h-[380px]  // Desktop pequeño
+                            xl:h-[430px]  // Desktop grande
+                            rounded-xl bg-gradient-to-tr from-black via-[#0f0916] to-[#170e25] 
+                            border-[1px] border-gray-800"
+                        >
                             <video
                                 ref={videoRef}
                                 src={currentProject.videoSrc}
-                                className="w-full h-full object-cover rounded-xl"
+                                className="w-full h-full object-contain md:object-cover rounded-xl"
                                 muted
-                                autoPlay
                                 loop
                                 playsInline
-                                onMouseEnter={() => setIsPlaying(false)}
-                                onMouseLeave={() => setIsPlaying(true)}
+                                onError={(e) => {
+                                    console.log("Error loading video");
+                                }}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent transition-opacity duration-300" />
                         </div>
                     </div>
                 </div>
             </motion.div>
-            <div className="flex justify-center gap-8 mt-8">
+            <div
+                className="flex justify-center gap-8 mt-8">
                 <motion.button
                     onClick={prevSlide}
                     whileHover={{ scale: 1.1 }}
@@ -165,8 +242,9 @@ const Projects = () => {
                     </div>
                 </motion.button>
             </div>
-        </section>
+        </motion.section>
     );
 };
+
 
 export default Projects;

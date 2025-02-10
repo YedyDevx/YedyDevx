@@ -31,44 +31,61 @@ const technologies = [
 
 const Stacks = () => {
     return (
-        <section  className="flex flex-col items-center w-full px-4 pt-10 relative overflow-hidden">
-            {/* Fondo con efecto cyberpunk */}
+        <section className="flex flex-col items-center w-full px-4 pt-10 relative overflow-hidden">
+            {/* Fondos */}
             <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
-
-            {/* Título con efecto de brillo */}
+            
+            {/* Título */}
             <motion.h2
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
                 className="font-semibold font-ubuntu-condensed text-6xl my-10 relative"
             >
-                <span className="gradient-text relative">
+                <motion.span
+                initial={{ opacity: 0, y: -100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.5 }}
+                transition={{ duration: 0.8 }}
+                className="gradient-text">
                     Tech Stack
-                    <div className="absolute -inset-1 " />
-                </span>
+                </motion.span>
             </motion.h2>
-
-            {/* Grid de tecnologías */}
-            <div className="flex flex-wrap justify-center gap-6 max-w-[1200px] relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-[1200px] relative z-10">
                 {technologies.map((tech, index) => (
                     <motion.div
                         key={tech.name}
                         initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="w-[280px] sm:w-[250px] flex-shrink-0"
+                        whileInView={{ 
+                            opacity: 1, 
+                            scale: 1,
+                            transition: {
+                                duration: 0.4,
+                                delay: index * 0.1 
+                            }
+                        }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="w-full"
                     >
-                        <div className="group relative h-28 bg-black/40 backdrop-blur-sm rounded-lg 
-                                      border border-purple-500/20
-                                      transition-all duration-300 
-                                      hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]
-                                      hover:translate-y-[-5px]">
-                            {/* Gradiente de fondo */}
-                            <div className={`absolute inset-0 bg-gradient-to-r ${tech.color} to-transparent opacity-0  group-hover:opacity-10 transition-opacity duration-300`} />
+                        <motion.div
+                            whileHover={{ y: -5 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                            className="group relative h-28 bg-black/40 backdrop-blur-sm rounded-lg 
+                                     border border-purple-500/20
+                                     transition-all duration-300 
+                                     hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
+                        >
+                            <div className={`absolute inset-0 bg-gradient-to-r ${tech.color} to-transparent opacity-0 
+                                          group-hover:opacity-10 transition-opacity duration-300 rounded-lg`} />
 
-                            {/* Contenido */}
                             <div className="relative flex items-center justify-center gap-6 p-4 h-full">
-                                <div className="relative w-16 h-16 transition-transform duration-300 group-hover:scale-110 flex justify-center items-center">
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="relative w-16 h-16 flex justify-center items-center"
+                                >
                                     <Image
                                         src={tech.icon}
                                         alt={`${tech.name} icon`}
@@ -76,16 +93,15 @@ const Stacks = () => {
                                         height={64}
                                         className="object-contain drop-shadow-[0_0_10px_rgba(168,85,247,0.3)]"
                                     />
-                                </div>
+                                </motion.div>
                                 <span className="text-gray-300 font-ubuntu text-xl tracking-wider">
                                     {tech.name}
                                 </span>
                             </div>
 
-                            {/* Líneas decorativas */}
                             <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-purple-500/50 to-transparent" />
                             <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-purple-500/50 to-transparent" />
-                        </div>
+                        </motion.div>
                     </motion.div>
                 ))}
             </div>

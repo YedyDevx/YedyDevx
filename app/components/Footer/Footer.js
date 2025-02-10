@@ -2,18 +2,28 @@
 import Image from "next/image";
 import logo from "../../../public/Logo.svg";
 import CVButton from "../Header/CVBotton";
-import { FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { Link as ScrollLink } from "react-scroll";
+import { motion } from "framer-motion";
+import BtnSocial from "../Contact/BtnSocial";
 
 const Footer = () => {
+    const scrollLinks = [  
+        {to: 'aboutme', text: 'Conoce más sobre mí'},
+        {to: 'projects', text: 'Conoce algunos de mis proyectos'},
+        {to: 'contact', text: 'Contactame para conocer más'}
+    ]
+    
     return (
-        <div className="relative w-full pt-16 pb-5 px-4 overflow-hidden">
-            {/* Gradiente de fondo */}
+        <motion.footer
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5 }} className="relative w-full pt-16 pb-5 px-4 overflow-hidden"
+        >
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-black/90" />
-
             <div className="relative z-10 max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 font-ubuntu">
                     <div className="flex flex-col items-center ">
@@ -29,19 +39,20 @@ const Footer = () => {
                             Explora mi portfolio
                         </h2>
                         <nav className="flex flex-col gap-2 text-gray-300 items-center lg:items-start">
-                            <ScrollLink to="aboutme" smooth={true} duration={500} className="hover:text-purple-400 transition-colors">
-                                Conoce más sobre mí
+                        {scrollLinks.map((item, index) => (
+                            <ScrollLink 
+                                key={index}
+                                to={item.to}
+                                smooth={true}
+                                duration={500}
+                                className="hover:text-purple-400 transition-colors cursor-pointer"
+                            >
+                                {item.text}
                             </ScrollLink>
-                            <ScrollLink to="projects" smooth={true} duration={500} className="hover:text-purple-400 transition-colors">
-                                Conoce algunos de mis proyectos
-                            </ScrollLink>
-                            <ScrollLink to="contact" smooth={true} duration={500} className="hover:text-purple-400 transition-colors">
-                                Contactame para conocer más
-                            </ScrollLink>
-                        </nav>
-                    </div>
+                        ))}
+                    </nav>
 
-                    {/* Ubicación */}
+                    </div>
                     <div className="flex flex-col items-center lg:items-start">
                         <h2 className="text-2xl font-ubuntu-condensed gradient-text mb-6">
                             Ubicación
@@ -61,48 +72,21 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-
-                    {/* Redes Sociales */}
-                    <div className="flex flex-col items-center lg:items-start ">
-                        <h2 className="text-2xl font-ubuntu-condensed gradient-text mb-6">
-                            Conectemos
-                        </h2>
-                        <CVButton />
-                        <div className="flex gap-4 mt-3">
-                            <a 
-                                href="https://www.linkedin.com/in/yedixon-ramones-5297b1277/" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="p-3 bg-purple-900/30 rounded-full hover:bg-purple-600/50 transition-colors"
-                            >
-                                <FaLinkedinIn className="text-white text-xl" />
-                            </a>
-                            <a 
-                                href="https://github.com/YedyDevx" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="p-3 bg-purple-900/30 rounded-full hover:bg-purple-600/50 transition-colors"
-                            >
-                                <FaGithub className="text-white text-xl" />
-                            </a>
-                            <a 
-                                href="TU_LINK_INSTAGRAM" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="p-3 bg-purple-900/30 rounded-full hover:bg-purple-600/50 transition-colors"
-                            >
-                                <FaInstagram className="text-white text-xl" />
-                            </a>
-                        </div>
+                    <div className="flex flex-col items-center lg:items-start justify-center">
+                        <div className="flex flex-col  items-center gap-4"> 
+                            <h2 className="text-2xl font-ubuntu-condensed gradient-text">
+                                Conectemos
+                            </h2>
+                                <CVButton />
+                                <BtnSocial />
+                            </div>
                     </div>
                 </div>
-
-                {/* Copyright */}
                 <div className=" mt-3  pt-3 border-t border-purple-900/30 text-center text-gray-400">
                     <p>© 2025 Yedixon Ramones - YedyDevx. </p>
                 </div>
             </div>
-        </div>
+        </motion.footer>
     );
 };
 
