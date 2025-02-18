@@ -36,7 +36,7 @@ const BtnSocial = () => {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`relative flex items-center justify-center w-14 h-14 
+                        className={`relative z-40 flex items-center justify-center w-14 h-14 
                                   text-2xl text-white/80 
                                   bg-black/30 backdrop-blur-sm
                                   rounded-full border border-purple-500/30
