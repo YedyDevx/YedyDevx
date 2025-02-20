@@ -20,9 +20,9 @@ const Section1 = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.5 }}
-                    className=" text-center font-ubuntu text-2xl md:text-4xl lg:text-3xl gradient-text mx-5 md:mx-0"
+                    className=" text-center font-ubuntu text-3xl md:text-4xl lg:text-3xl gradient-text mx-5 md:mx-0"
                 >
-                   Apasionado por crear experiencias digitales con diseño y desarrollo de software.
+                   Apasionado por crear experiencias digitales.
                 </motion.p>
                 <BtnContact />
             </div>
